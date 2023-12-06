@@ -1,0 +1,61 @@
+# Version 1
+h = 0
+b, c = 106500, 123500
+while True:
+    f, d = 1, 2
+    while True:
+        e = 2
+        while True:
+            g = d * e - b
+            if g == 0:
+                f = 0
+            e += 1
+            g = e - b
+            if g == 0:
+                break
+        d += 1
+        g = d - b
+        if g == 0:
+            break
+    if f == 0:
+        h += 1
+    g = b - c
+    if g == 0:
+        break
+    b += 17
+
+# Version 2
+h = 0
+b, c = 106500, 123500
+while b != c:
+    f, d = 1, 2
+    while d != b:
+        e = 2
+        while e != b:
+            if d * e == b:
+                f = 0
+            e += 1
+        d += 1
+    if f == 0:
+        h += 1
+    b += 17
+
+# Version 3
+h = 0
+for b in range(106500, 123501, 17):
+    f = 1
+    for d in range(2, b):
+        for e in range(2, b):
+            if d * e == b:
+                f = 0
+    if f == 0:
+        h += 1
+    b += 17
+
+# Version 4
+h = 0
+for b in range(106500, 123501, 17):
+    for d in range(2, b):
+        if b % d == 0:
+            h += 1
+            break
